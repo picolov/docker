@@ -8,14 +8,6 @@ jhipster:
         authentication:
             jwt:
                 secret: db22bd0d74c594844419edb999e3b4abe89624e6
-    logging:
-        logstash: # forward logs to ELK
-            enabled: true
-            host: jhipster-logstash
-    metrics:
-        logs: # report metrics in the logs
-            enabled: true
-            report-frequency: 60 # in seconds
 
 eureka:
     client:

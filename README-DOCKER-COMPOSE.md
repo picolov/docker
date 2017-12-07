@@ -14,7 +14,3 @@ Launch all your infrastructure by running: `docker-compose up -d`.
 - commons (microservice application)
 - gateway (gateway application)
 - uaa (uaa application)
-
-### Additional Services:
-
-- [JHipster Console](http://localhost:5601)
