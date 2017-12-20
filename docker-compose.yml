@@ -6,8 +6,16 @@ services:
             - POSTGRES_USER=baswara
             - POSTGRES_PASSWORD=Password1!
         volumes:
-            - ./postgrelib:/var/lib/postgresql
+            - ./postgreVolume:/var/lib/postgresql
             - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+    mongodb:
+        image: mongo:3.4.8
+        ports:
+            - 27017:27017
+        volumes:
+            - ./mongoVolume:/data/db/
+
     uaa-app:
         image: uaa
         environment:
@@ -30,15 +38,16 @@ services:
         ports:
             - 8090:8080
     
-    commons-app:
-        image: commons
+    generic-app:
+        image: generic
         environment:
             - SPRING_PROFILES_ACTIVE=prod,swagger
             - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/eureka
             - SPRING_CLOUD_CONFIG_URI=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/config
-            - SPRING_DATASOURCE_URL=jdbc:postgresql://postgredb:5432/commons
+            - SPRING_DATA_MONGODB_URI=mongodb://mongodb:27017
+            - SPRING_DATA_MONGODB_DATABASE=generic
             - JHIPSTER_SLEEP=30
-            - JHIPSTER_REGISTRY_PASSWORD=loot1234    
+            - JHIPSTER_REGISTRY_PASSWORD=loot1234
     
     jhipster-registry:
         extends:
