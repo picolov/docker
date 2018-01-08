@@ -6,7 +6,7 @@ services:
             - POSTGRES_USER=baswara
             - POSTGRES_PASSWORD=Password1!
         volumes:
-            - ./postgreVolume:/var/lib/postgresql
+            - ./postgreVolume:/var/lib/postgresql/data
             - ./init.sql:/docker-entrypoint-initdb.d/init.sql
 
     mongodb:
