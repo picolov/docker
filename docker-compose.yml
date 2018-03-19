@@ -48,6 +48,9 @@ services:
             - SPRING_DATA_MONGODB_DATABASE=generic
             - JHIPSTER_SLEEP=30
             - JHIPSTER_REGISTRY_PASSWORD=loot1234
+        volumes:
+            - ./files:/files
+            - ./reports:/reports
     
     jhipster-registry:
         extends:
