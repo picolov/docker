@@ -10,7 +10,7 @@ services:
             - ./init.sql:/docker-entrypoint-initdb.d/init.sql
 
     mongodb:
-        image: mongo:3.4.8
+        image: mongo:3.6.3
         environment:
             - MONGO_INITDB_ROOT_USERNAME=baswara
             - MONGO_INITDB_ROOT_PASSWORD=password123!
