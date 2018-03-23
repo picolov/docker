@@ -11,6 +11,9 @@ services:
 
     mongodb:
         image: mongo:3.4.8
+        environment:
+            - MONGO_INITDB_ROOT_USERNAME=baswara
+            - MONGO_INITDB_ROOT_PASSWORD=password123!
         ports:
             - 27017:27017
         volumes:
@@ -46,6 +49,8 @@ services:
             - SPRING_CLOUD_CONFIG_URI=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/config
             - SPRING_DATA_MONGODB_URI=mongodb://mongodb:27017
             - SPRING_DATA_MONGODB_DATABASE=generic
+            - SPRING_DATA_MONGODB_USERNAME=baswara
+            - SPRING_DATA_MONGODB_PASSWORD=password123!
             - JHIPSTER_SLEEP=30
             - JHIPSTER_REGISTRY_PASSWORD=loot1234
         volumes:
